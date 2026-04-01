@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Hana 💖</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Coiny&family=Dancing+Script&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<!-- 🎬 INTRO -->
+<div class="intro" id="intro">
+    <div class="intro-text">
+        <p>aku punya sesuatu buat kamu...</p>
+        <p>sesuatu yang gak bisa aku sampaikan langsung</p>
+        <p>tapi aku harap kamu mau lihat sampai akhir ya</p>
+        <button id="startBtn">💖 mulai 💖</button>
+    </div>
+</div>
+
+<!-- 🎵 MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🎈 BALLOONS -->
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+
+<!-- 💕 HEARTS -->
+<div class="heart" style="left:20%">💖</div>
+<div class="heart" style="left:50%">💕</div>
+<div class="heart" style="left:70%">💗</div>
+
+<!-- ✨ SPARKLES -->
+<div class="sparkle" style="top:20%; left:30%"></div>
+<div class="sparkle" style="top:50%; left:60%"></div>
+<div class="sparkle" style="top:70%; left:40%"></div>
+
+<!-- MAIN -->
+<div class="container">
+    <h1>Happy Birthday Hana 🎂</h1>
+    <button class="open-btn" id="openLetterBtn">💌 buka surat</button>
+</div>
+
+<!-- LETTER -->
+<div class="overlay" id="overlay">
+    <div class="letter">
+        <button class="close" id="closeLetter">✖</button>
+
+        <p>Selamat ulang tahun ya, Hana… 🤍</p>
+
+        <p>Hari ini harusnya jadi hari yang penuh senyum buat kamu.</p>
+        <p>Dan meskipun aku gak ada di sana, aku harap kamu tetap ngerasa bahagia… walau cuma sedikit.</p>
+
+        <p>Aku cuma mau kamu tau satu hal sederhana…</p>
+        <p>aku inget hari ini, dan aku inget kamu.</p>
+
+        <p>Di antara semua hal yang mungkin lagi kamu jalanin sekarang,</p>
+        <p>aku harap kamu gak lupa kalau kamu itu berharga,</p>
+        <p>dan kamu pantas dapet banyak hal baik dalam hidup kamu.</p>
+
+        <p>Aku bangga sama kamu… lebih dari yang bisa aku ucapin.</p>
+        <p>Kamu kuat, kamu hebat, bahkan di saat kamu sendiri ngerasa enggak.</p>
+
+        <p>Kalau suatu hari kamu capek, atau ngerasa sendirian…</p>
+        <p>aku harap kamu inget, pernah ada seseorang</p>
+        <p>yang diam-diam selalu doain kamu dari jauh.</p>
+
+        <p>Aku gak tau sampai kapan aku bisa ada di sini,</p>
+        <p>tapi selama aku masih di sini…</p>
+        <p>aku akan selalu nyimpen kamu di tempat yang baik.</p>
+
+        <p>Selamat ulang tahun ya, Hana…</p>
+        <p>semoga hal-hal baik selalu nyusul kamu, satu per satu 🤍</p>
+
+        <p class="signature">dari seseorang yang kamu sayang 💖</p>
+    </div>
+</div>
+
+<div id="popup" class="popup" onclick="closePopup()">
+    makasih ya… udah sampai sini 🤍
+</div>
+
+<!-- 🎉 CONFETTI -->
+<div id="confetti"></div>
+
+<script>
+const startBtn = document.getElementById("startBtn");
+const intro = document.getElementById("intro");
+const music = document.getElementById("music");
+
+startBtn.onclick = () => {
+    intro.style.display = "none";
+    music.play();
+};
+
+const openBtn = document.getElementById("openLetterBtn");
+const overlay = document.getElementById("overlay");
+const closeBtn = document.getElementById("closeLetter");
+
+openBtn.onclick = () => {
+    overlay.style.display = "flex";
+    createConfetti();
+
+    setTimeout(showPopup, 35000);
+};
+
+closeBtn.onclick = () => {
+    overlay.style.display = "none";
+};
+
+function createConfetti() {
+    const container = document.getElementById("confetti");
+
+    for (let i = 0; i < 50; i++) {
+        let div = document.createElement("div");
+        div.className = "confetti-piece";
+        div.style.left = Math.random() * 100 + "%";
+        container.appendChild(div);
+
+        setTimeout(() => div.remove(), 4000);
+    }
+}
+
+function showPopup() {
+    const popup = document.getElementById("popup");
+
+    popup.classList.add("show");
+
+    // auto close setelah 5 detik
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 35000);
+}
+
+function closePopup() {
+    const popup = document.getElementById("popup");
+    popup.classList.remove("show");
+}
+</script>
+
+</body>
+</html>
