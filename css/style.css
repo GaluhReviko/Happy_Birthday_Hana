@@ -104,11 +104,22 @@ h1 {
     background: white;
     padding: 30px;
     width: 320px;
+    max-height: 80vh; /* 🔥 BATAS TINGGI */
+    overflow-y: auto; /* 🔥 AKTIFKAN SCROLL */
     border-radius: 15px;
     text-align: center;
     font-family: 'Dancing Script', cursive;
     animation: fadeUp 1s;
     box-shadow: 0 0 25px rgba(255, 107, 138, 0.5);
+    padding-bottom: 50px;
+}
+
+.letter::-webkit-scrollbar {
+    display: none;
+}
+
+.letter {
+    scroll-behavior: smooth;
 }
 
 @keyframes fadeUp {
